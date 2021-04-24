@@ -6,31 +6,49 @@ layout: default
 <body>
 
 <h2>Datatypes</h2>
-int_u8 = unsigned byte (8 bit integer)
-int_u16 = unsigned short (16 bit integer)
-int_u32 = unsigned int (32 bit integer)
-float_f32 = 32 bit floating point value (float)
-float_f64 = 64 bit floating point value (double)
+<table>
+	<thead>
+		<tr>
+			<th>Type</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tr>
+		<td>int_u8</td>
+		<td>unsigned byte (8 bit integer)</td>
+	</tr>
+	<tr>
+		<td>int_u16</td>
+		<td>unsigned short (16 bit integer)</td>
+	</tr>
+	<tr>
+		<td>int_u32</td>
+		<td>unsigned int (32 bit integer)</td>
+	</tr>
+	<tr>
+		<td>float_f32</td>
+		<td>32 bit floating point value (float)</td>
+	</tr>
+	<tr>
+		<td>float_f64</td>
+		<td>64 bit floating point value (double)</td>
+	</tr>
+	<tr>
+		<td>String(x)</td>
+		<td>string consisting of x elements of unsigned bytes</td>
+	</tr>
+</table>
 
 
-readchar(x) string consisting of x elements of unsigned bytes.
-Pseudocode:
-```
+<h4>String(x)</h4>
+<b>Pseudocode</b>
+<code>
 String s = ""
 for(i = 0;i<x;i++){
 	s+=toChar(int_u8) //toChar converts byte to character according to ascii conversion
 }
 return s
-```
-
-
-
-
-
-```
-fileIdentifier = readChar(11) //should read "celaria_map"
-version = int_u8
-```
+</code>
 
 
 </body>
