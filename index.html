@@ -34,7 +34,7 @@ layout: default
 		<td>64 bit floating point value (double)</td>
 	</tr>
 	<tr>
-		<td>String(x)</td>
+		<td>string(x)</td>
 		<td>string consisting of x elements of unsigned bytes</td>
 	</tr>
 </table>
@@ -50,6 +50,64 @@ for(i = 0;i &lt; x;i++){<br>
 return s<br>
 </code>
 
+	fileID = string(11) //file identifier. should equal to "celaria_map"
+	version = int_u8
+	
+	mapNameLength = int_u8
+	map_name = string(mapNameLength)
+	
+	int_u8 //unused byte
+	
+	if(version == 0){
+		int_u8 //unused byte
+	}
+	numCheckpoints = int_u8 //number of checkpoints
+	
+	//platin times
+	repeat(numCheckpoints){
+		int_u32 //checkpoint time
+	}
+	//gold times
+	repeat(numCheckpoints){
+		int_u32 //checkpoint time
+	}
+	//silver times
+	repeat(numCheckpoints){
+		int_u32 //checkpoint time
+	}
+	//bronze times
+	repeat(numCheckpoints){
+		int_u32 //checkpoint time
+	}
 
+	sunRotation_horizontal = float_f32
+	sunRotation_vertical = float_f32
+	
+	//preview camera
+	previewCam_xfrom = float_f64
+	previewCam_yfrom = float_f64
+	previewCam_zfrom = float_f64
+	
+	previewCam_xto = float_f64
+	previewCam_yto = float_f64
+	previewCam_zto = float_f64
+	
+	numEntities = int_u32
+	
+	repeat(numEntities){
+		entityType = int_u8
+		switch(entityType){
+			case 0:
+	
+			break;
+			case 1:
+	
+			break;
+	
+		}
+	
+	
+	}
+	
 </body>
 </html>
