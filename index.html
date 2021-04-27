@@ -3,56 +3,59 @@ layout: default
 ---
 
 <html>
-<body>
+	<body>
 
-<h2>Datatypes</h2>
-<table>
-	<thead>
+	<h2>Datatypes</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Type</th>
+				<th>Description</th>
+			</tr>
+		</thead>
 		<tr>
-			<th>Type</th>
-			<th>Description</th>
+			<td>int_u8</td>
+			<td>unsigned byte (8 bit integer)</td>
 		</tr>
-	</thead>
-	<tr>
-		<td>int_u8</td>
-		<td>unsigned byte (8 bit integer)</td>
-	</tr>
-	<tr>
-		<td>int_u16</td>
-		<td>unsigned short (16 bit integer)</td>
-	</tr>
-	<tr>
-		<td>int_u32</td>
-		<td>unsigned int (32 bit integer)</td>
-	</tr>
-	<tr>
-		<td>float_f32</td>
-		<td>32 bit floating point value (float)</td>
-	</tr>
-	<tr>
-		<td>float_f64</td>
-		<td>64 bit floating point value (double)</td>
-	</tr>
-	<tr>
-		<td>string(x)</td>
-		<td>string consisting of x elements of unsigned bytes</td>
-	</tr>
-</table>
+		<tr>
+			<td>int_u16</td>
+			<td>unsigned short (16 bit integer)</td>
+		</tr>
+		<tr>
+			<td>int_u32</td>
+			<td>unsigned int (32 bit integer)</td>
+		</tr>
+		<tr>
+			<td>float_f32</td>
+			<td>32 bit floating point value (float)</td>
+		</tr>
+		<tr>
+			<td>float_f64</td>
+			<td>64 bit floating point value (double)</td>
+		</tr>
+		<tr>
+			<td>string(x)</td>
+			<td>string consisting of x elements of unsigned bytes</td>
+		</tr>
+	</table>
 
 
-<h4>String(x)</h4>
-<b>Pseudocode</b>
-<pre>
-<code>
+	<h4>String(x)</h4>
+	<b>Pseudocode</b>
+	<pre>
+		<code>
 String s = ""
-for(i = 0;i &lt; x;i++){<br>
+for(i = 0;i &lt; x;i++){
 	s+=toChar(int_u8) //toChar converts byte to character according to ascii conversion<br>
-}<br>
-return s<br>
+}
+return s
 </code>
 </pre>
-<pre>
-<code>
+	
+	
+	<h2>Cmap format (.cmap)</h2>
+	<pre>
+		<code>
 fileID = string(11) //file identifier. should equal to "celaria_map"
 version = int_u8
 
@@ -208,7 +211,14 @@ repeat(numEntities){
 
 
 }
-</code>
-</pre>
-</body>
+			</code>
+		</pre>
+
+	<h2>Emap format (.ecmap)</h2>
+	<pre>
+	<code>
+
+	</code>
+	</pre>
+	</body>
 </html>
