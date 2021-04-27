@@ -40,7 +40,7 @@ layout: default
 	</table>
 
 
-	<h4>String(x)</h4>
+	<h4>string(x)</h4>
 	<b>Pseudocode</b>
 	<pre>
 		<code>
@@ -106,7 +106,7 @@ repeat(numEntities){
 		case 0: //block
 			blockType = int_u8
 			if(version == 0){
-					int_u8 //unused
+				int_u8 //unused
 			}
 			if(version <= 1){
 				xPos = int_s32
@@ -126,6 +126,9 @@ repeat(numEntities){
 				zScale = float_f64					
 			}
 			zRotation = float_f32
+			if(blockType == 5){
+				checkpoint_id = int_u8
+			}
 		break;
 
 		case 1://sphere
@@ -145,6 +148,7 @@ repeat(numEntities){
 
 		break;
 		case 2://player start
+			int_u8 //unused
 			if(version <= 1){
 				xPos = int_s32
 				yPos = int_s32
@@ -218,6 +222,167 @@ repeat(numEntities){
 	<pre>
 	<code>
 
+fileID = string(11) //file identifier. should equal to "celaria_edi"
+version = int_u8
+
+mapNameLength = int_u8
+map_name = string(mapNameLength)
+
+int_u8 //unused byte
+
+if(version == 0){
+	int_u8 //unused byte
+}
+
+sunRotation_horizontal = float_f32
+sunRotation_vertical = float_f32
+
+//preview camera
+previewCam_xfrom = float_f64
+previewCam_yfrom = float_f64
+previewCam_zfrom = float_f64
+
+previewCam_xto = float_f64
+previewCam_yto = float_f64
+previewCam_zto = float_f64
+
+numEntities = int_u32
+
+repeat(numEntities){
+	entityType = int_u8
+	switch(entityType){
+		case 0: //block
+			blockType = int_u8
+			if(version == 0){
+				int_u8 //unused
+			}
+			if(version <= 1){
+				xPos = int_s32
+				yPos = int_s32
+				zPos = int_u32
+
+				xScale = int_u32
+				yScale = int_u32
+				zScale = int_u32
+			}else{
+				xPos = float_f64
+				yPos = float_f64
+				zPos = float_f64
+
+				xScale = float_f64
+				yScale = float_f64
+				zScale = float_f64					
+			}
+			zRotation = float_f32
+			if(blockType == 5){
+				checkpoint_id = int_u8
+			}
+		break;
+
+		case 1://sphere
+			if(version <= 3){
+				xPos = int_s32
+				yPos = int_s32
+				if(version == 0){
+					zPos = int_s32
+				}else{
+					zPos = int_u32
+				}
+			}else{
+				xPos = float_f64
+				yPos = float_f64
+				zPos = float_f64
+			}
+
+		break;
+		case 2://player start
+			int_u8 //unused
+			if(version <= 3){
+				xPos = int_s32
+				yPos = int_s32
+				if(version == 0){
+					zPos = int_s32
+				}else{
+					zPos = int_u32
+				}
+			}else{
+				xPos = float_f64
+				yPos = float_f64
+				zPos = float_f64
+			}
+			zRotation = float_f32
+		break;
+
+		case 3: //barrier wall
+			//only valid if version is >= 3
+			
+			int_u8 //unused (should be 0)
+			if(version == 3){
+				xPos = int_s32
+				yPos = int_s32
+				zPos = int_u32
+				xScale = int_u32
+				zScale = int_u32
+				
+			}else{
+				xPos = float_f64
+				yPos = float_f64
+				zPos = float_f64
+				xScale = float_f64
+				zScale = float_f64
+			}
+			zRotation = float_f32
+		break;
+
+		case 4: //barrier floor
+			//only valid if version is >= 3
+			
+			int_u8 //unused (should be 0)
+			if(version == 3){
+				xPos = int_s32
+				yPos = int_s32
+				zPos = int_u32
+				xScale = int_u32
+				yScale = int_u32
+				
+			}else{
+				xPos = float_f64
+				yPos = float_f64
+				zPos = float_f64
+				xScale = float_f64
+				yScale = float_f64
+			}
+			zRotation = float_f32
+		break;
+		case 128: //empty object
+			empty_id = int_u8
+			if (version <= 3){
+				xPos = int_s32
+				yPos = int_s32
+				zPos = int_u32
+
+				xScale = int_u32
+				yScale = int_u32
+				zScale = int_u32
+
+			}else{
+				xPos = float_f64
+				yPos = float_f64
+				zPos = float_f64
+
+				xScale = float_f64
+				yScale = float_f64
+				zScale = float_f64					
+			}
+
+			zRotation = float_f32
+		break;
+
+
+	}
+
+
+}
 	</code>
 	</pre>
 	</body>
